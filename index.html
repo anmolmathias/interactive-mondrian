@@ -3,6 +3,24 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./assets/images/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./assets/images/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/site.webmanifest" />
 		<link rel="stylesheet" href="style.css" />
 		<title>Interactive Mondrian</title>
 		<meta
@@ -11,6 +29,17 @@
 		/>
 	</head>
 	<body>
+		<div class="overlay">
+			<div class="modal-content">
+				<button class="close">✖</button>
+				<img src="./assets/images/mondrian.png" alt="mondrian-logo" />
+				<p>
+					Create Mondrian-esque art by clicking or tapping on the
+					screen.
+				</p>
+				<button class="accept">I got this!</button>
+			</div>
+		</div>
 		<canvas></canvas>
 		<div class="info left">
 			<div class="ticker download">Save as Wallpaper!</div>
@@ -23,7 +52,12 @@
 					target="_blank"
 					>Read more</a
 				>&nbsp;
-				<a class="gh" href="https://github.com/anmolmathias/interactive-mondrian" target="_blank">GitHub</a>
+				<a
+					class="gh"
+					href="https://github.com/anmolmathias/interactive-mondrian"
+					target="_blank"
+					>GitHub</a
+				>
 			</div>
 		</div>
 

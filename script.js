@@ -1,14 +1,24 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 canvas.addEventListener("click", rectangleClick);
+const closeButton = document.querySelector(".close");
+const overlay = document.querySelector(".overlay");
+const acceptButton = document.querySelector(".accept");
 
-document.querySelector('.download').addEventListener('click', function(e) {
-    let canvasUrl = canvas.toDataURL();
-    const createEl = document.createElement('a');
-    createEl.href = canvasUrl;
-    createEl.download = "mondrian-wallpaper";
-    createEl.click();
-    createEl.remove();
+function hideOverlay(e) {
+	overlay.style.display = "none";
+}
+
+closeButton.addEventListener("click", hideOverlay);
+acceptButton.addEventListener("click", hideOverlay);
+
+document.querySelector(".download").addEventListener("click", function (e) {
+	let canvasUrl = canvas.toDataURL();
+	const createEl = document.createElement("a");
+	createEl.href = canvasUrl;
+	createEl.download = "mondrian-wallpaper";
+	createEl.click();
+	createEl.remove();
 });
 
 canvas.width = window.innerWidth;
@@ -61,14 +71,14 @@ function splitRectangleAt(rectangle, position) {
 			y: rectangle.y,
 			width: position.x,
 			height: rectangle.height,
-			color: getColor()
+			color: getColor(),
 		});
 		rectangles.push({
 			x: rectangle.x + position.x,
 			y: rectangle.y,
 			width: rectangle.width - position.x,
 			height: rectangle.height,
-			color: getColor()
+			color: getColor(),
 		});
 	} else {
 		rectangles.push({
@@ -76,23 +86,26 @@ function splitRectangleAt(rectangle, position) {
 			y: rectangle.y,
 			width: rectangle.width,
 			height: position.y,
-			color: getColor()
+			color: getColor(),
 		});
 		rectangles.push({
 			x: rectangle.x,
 			y: rectangle.y + position.y,
 			width: rectangle.width,
 			height: rectangle.height - position.y,
-			color: getColor()
+			color: getColor(),
 		});
 	}
 	splitDirectionVertical = !splitDirectionVertical;
 	drawRectangles();
 }
 
-
 function getColor() {
 	const colors = [
+		"#EBEBED",
+		"#EBEBED",
+		"#EBEBED",
+		"#EBEBED",
 		"#EBEBED",
 		"#EBEBED",
 		"#EBEBED",
@@ -113,7 +126,7 @@ rectangles.push({
 	y: 0,
 	width: window.innerWidth,
 	height: window.innerHeight,
-	color: "#EBEBED"
+	color: "#EBEBED",
 });
 
 drawRectangles();
